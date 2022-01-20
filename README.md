@@ -12,3 +12,5 @@ A CLI to convert IP addresses to integers
 `ip2dpy 8.8.8.8`
 
 `ip2dpy -i 51092 --hex -c`
+
+`ip2dpy ff:fe20::67 --hex -o oct`

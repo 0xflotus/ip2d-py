@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="ip2d-py",
-    version="0.0.1",
+    version="0.0.2",
     description="Convert IP addresses to integers on cli",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -21,5 +21,5 @@ setup(
     ],
     packages=["ip2d-py"],
     include_package_data=True,
-    install_requires=["ipy2d==0.0.3", "argparse"],
+    install_requires=["ipy2d==0.0.6", "argparse"],
 )

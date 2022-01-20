@@ -6,10 +6,13 @@ def main():
     parser.add_argument('x')
     parser.add_argument('-i', action='store_true')
     parser.add_argument('--six', action='store_true')
+    parser.add_argument('-c', action='store_true')
     args = parser.parse_args()
     
     if args.six:
-        if args.i:
+        if args.i and args.c:
+            print(fun.to_6(int(args.x), compressed=True))
+        elif args.i:
             print(fun.to_6(int(args.x)))
         else:
             print(fun.from_6(args.x))

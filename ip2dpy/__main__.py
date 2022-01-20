@@ -11,6 +11,7 @@ def main():
     parser.add_argument(
         "-o", type=str, required=False, help="Output format: (b)in, (o)ct or (h)ex"
     )
+    parser.add_argument("-P", action="store_true", help="Output format without prefix")
     args = parser.parse_args()
 
     try:
@@ -32,14 +33,14 @@ def main():
                     except ValueError:
                         print(fun.to_6(int(args.ip, 0o10)))
             else:
+                output = fun.from_6(args.ip)
                 if args.o == "o" or args.o == "oct":
-                    print(oct(fun.from_6(args.ip)))
+                    output = oct(fun.from_6(args.ip)) if not args.P else oct(fun.from_6(args.ip))[0x02:]
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
-                    print(hex(fun.from_6(args.ip)))
+                    output = hex(fun.from_6(args.ip)) if not args.P else hex(fun.from_6(args.ip))[0x02:]
                 elif args.o == "b" or args.o == "bin":
-                    print(bin(fun.from_6(args.ip)))
-                else:
-                    print(fun.from_6(args.ip))
+                    output = bin(fun.from_6(args.ip)) if not args.P else bin(fun.from_6(args.ip))[0x02:]
+                print(output)
         else:
             if args.i:
                 try:
@@ -50,14 +51,14 @@ def main():
                     except ValueError:
                         print(fun.to_4(int(args.ip, 0o10)))
             else:
+                output = fun.from_4(args.ip)
                 if args.o == "o" or args.o == "oct":
-                    print(oct(fun.from_4(args.ip)))
+                    output = oct(fun.from_4(args.ip)) if not args.P else oct(fun.from_4(args.ip))[0x02:]
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
-                    print(hex(fun.from_4(args.ip)))
+                    output = hex(fun.from_4(args.ip)) if not args.P else hex(fun.from_4(args.ip))[0x02:]
                 elif args.o == "b" or args.o == "bin":
-                    print(bin(fun.from_4(args.ip)))
-                else:
-                    print(fun.from_4(args.ip))
+                    output = bin(fun.from_4(args.ip)) if not args.P else bin(fun.from_4(args.ip))[0x02:]
+                print(output)
     except IndexError:
         parser.print_help()
 

@@ -15,12 +15,18 @@ def main():
             try:
                 print(fun.to_6(int(args.x), compressed=True))
             except ValueError:
-                print(fun.to_6(int(args.x, 0x10), compressed=True))
+                try:
+                    print(fun.to_6(int(args.x, 0x10), compressed=True))
+                except ValueError:
+                    print(fun.to_6(int(args.x, 0o10), compressed=True))
         elif args.i:
             try:
                 print(fun.to_6(int(args.x)))
             except ValueError:
-                print(fun.to_6(int(args.x, 0x10)))
+                try:
+                    print(fun.to_6(int(args.x, 0x10)))
+                except ValueError:
+                    print(fun.to_6(int(args.x, 0o10)))
         else:
             print(fun.from_6(args.x))
     else:
@@ -28,7 +34,10 @@ def main():
             try:
                 print(fun.to_4(int(args.x)))
             except ValueError:
-                print(fun.to_4(int(args.x, 0x10)))
+                try:
+                    print(fun.to_4(int(args.x, 0x10)))
+                except ValueError:
+                    print(fun.to_4(int(args.x, 0o10)))
         else:
             print(fun.from_4(args.x))
 

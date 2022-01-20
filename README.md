@@ -1,6 +1,6 @@
 ## ip2d-py
 
-A CLI to convert IP addresses to integers
+A CLI to convert IP addresses to integers and vice versa
 
 ### Install
 

@@ -35,11 +35,23 @@ def main():
             else:
                 output = fun.from_6(args.ip)
                 if args.o == "o" or args.o == "oct":
-                    output = oct(fun.from_6(args.ip)) if not args.P else oct(fun.from_6(args.ip))[0x02:]
+                    output = (
+                        oct(fun.from_6(args.ip))
+                        if not args.P
+                        else oct(fun.from_6(args.ip))[0x02:]
+                    )
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
-                    output = hex(fun.from_6(args.ip)) if not args.P else hex(fun.from_6(args.ip))[0x02:]
+                    output = (
+                        hex(fun.from_6(args.ip))
+                        if not args.P
+                        else hex(fun.from_6(args.ip))[0x02:]
+                    )
                 elif args.o == "b" or args.o == "bin":
-                    output = bin(fun.from_6(args.ip)) if not args.P else bin(fun.from_6(args.ip))[0x02:]
+                    output = (
+                        bin(fun.from_6(args.ip))
+                        if not args.P
+                        else bin(fun.from_6(args.ip))[0x02:]
+                    )
                 print(output)
         else:
             if args.i:
@@ -53,11 +65,23 @@ def main():
             else:
                 output = fun.from_4(args.ip)
                 if args.o == "o" or args.o == "oct":
-                    output = oct(fun.from_4(args.ip)) if not args.P else oct(fun.from_4(args.ip))[0x02:]
+                    output = (
+                        oct(fun.from_4(args.ip))
+                        if not args.P
+                        else oct(fun.from_4(args.ip))[0x02:]
+                    )
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
-                    output = hex(fun.from_4(args.ip)) if not args.P else hex(fun.from_4(args.ip))[0x02:]
+                    output = (
+                        hex(fun.from_4(args.ip))
+                        if not args.P
+                        else hex(fun.from_4(args.ip))[0x02:]
+                    )
                 elif args.o == "b" or args.o == "bin":
-                    output = bin(fun.from_4(args.ip)) if not args.P else bin(fun.from_4(args.ip))[0x02:]
+                    output = (
+                        bin(fun.from_4(args.ip))
+                        if not args.P
+                        else bin(fun.from_4(args.ip))[0x02:]
+                    )
                 print(output)
     except IndexError:
         parser.print_help()

@@ -22,9 +22,5 @@ setup(
     packages=["ip2dpy"],
     include_package_data=True,
     install_requires=["ipy2d==0.1.0", "argparse"],
-    entry_points={
-        'console_scripts': [
-            'ip2dpy=ip2dpy.__main__:main'
-        ]
-    }
+    entry_points={"console_scripts": ["ip2dpy=ip2dpy.__main__:main"]},
 )

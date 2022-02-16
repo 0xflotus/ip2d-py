@@ -1,9 +1,11 @@
-from ipy2d import fun
+from ipy2d import *
+from ip2dpy import __version__
 import argparse
 
 
 def main():
     parser = argparse.ArgumentParser(description="Convert some IPs to integers")
+    parser.add_argument("-v", action="version", version=f"{__version__}", help="IP to convert")
     parser.add_argument("ip", help="IP to convert")
     parser.add_argument("-i", action="store_true", help="Integer to convert")
     parser.add_argument("--hex", action="store_true", help="IPv6 Mode")
@@ -18,69 +20,69 @@ def main():
         if args.hex:
             if args.i and args.c:
                 try:
-                    print(fun.to_6(int(args.ip), compressed=True))
+                    print(to_6(int(args.ip), compressed=True))
                 except ValueError:
                     try:
-                        print(fun.to_6(int(args.ip, 0x10), compressed=True))
+                        print(to_6(int(args.ip, 0x10), compressed=True))
                     except ValueError:
-                        print(fun.to_6(int(args.ip, 0o10), compressed=True))
+                        print(to_6(int(args.ip, 0o10), compressed=True))
             elif args.i:
                 try:
-                    print(fun.to_6(int(args.ip)))
+                    print(to_6(int(args.ip)))
                 except ValueError:
                     try:
-                        print(fun.to_6(int(args.ip, 0x10)))
+                        print(to_6(int(args.ip, 0x10)))
                     except ValueError:
-                        print(fun.to_6(int(args.ip, 0o10)))
+                        print(to_6(int(args.ip, 0o10)))
             else:
-                output = fun.from_6(args.ip)
+                output = from_6(args.ip)
                 if args.o == "o" or args.o == "oct":
                     output = (
-                        oct(fun.from_6(args.ip))
+                        oct(from_6(args.ip))
                         if not args.P
-                        else oct(fun.from_6(args.ip))[0x02:]
+                        else oct(from_6(args.ip))[0x02:]
                     )
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
                     output = (
-                        hex(fun.from_6(args.ip))
+                        hex(from_6(args.ip))
                         if not args.P
-                        else hex(fun.from_6(args.ip))[0x02:]
+                        else hex(from_6(args.ip))[0x02:]
                     )
                 elif args.o == "b" or args.o == "bin":
                     output = (
-                        bin(fun.from_6(args.ip))
+                        bin(from_6(args.ip))
                         if not args.P
-                        else bin(fun.from_6(args.ip))[0x02:]
+                        else bin(from_6(args.ip))[0x02:]
                     )
                 print(output)
         else:
             if args.i:
                 try:
-                    print(fun.to_4(int(args.ip)))
+                    print(to_4(int(args.ip)))
                 except ValueError:
                     try:
-                        print(fun.to_4(int(args.ip, 0x10)))
+                        print(to_4(int(args.ip, 0x10)))
                     except ValueError:
-                        print(fun.to_4(int(args.ip, 0o10)))
+                        print(to_4(int(args.ip, 0o10)))
             else:
-                output = fun.from_4(args.ip)
+                output = from_4(args.ip)
                 if args.o == "o" or args.o == "oct":
                     output = (
-                        oct(fun.from_4(args.ip))
+                        oct(from_4(args.ip))
                         if not args.P
-                        else oct(fun.from_4(args.ip))[0x02:]
+                        else oct(from_4(args.ip))[0x02:]
                     )
                 elif args.o == "h" or args.o == "x" or args.o == "hex":
                     output = (
-                        hex(fun.from_4(args.ip))
+                        hex(from_4(args.ip))
                         if not args.P
-                        else hex(fun.from_4(args.ip))[0x02:]
+                        else hex(from_4(args.ip))[0x02:]
                     )
                 elif args.o == "b" or args.o == "bin":
                     output = (
-                        bin(fun.from_4(args.ip))
+                        bin(from_4(args.ip))
                         if not args.P
-                        else bin(fun.from_4(args.ip))[0x02:]
+                        else bin(from_4(args.ip))[0x02:]
                     )
                 print(output)
     except IndexError:

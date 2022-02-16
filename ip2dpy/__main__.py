@@ -36,19 +36,19 @@ def main():
                         print(to_6(int(args.ip, 0o10)))
             else:
                 output = from_6(args.ip)
-                if args.o == "o" or args.o == "oct":
+                if args.o in ["o","oct"]:
                     output = (
                         oct(from_6(args.ip))
                         if not args.P
                         else oct(from_6(args.ip))[0x02:]
                     )
-                elif args.o == "h" or args.o == "x" or args.o == "hex":
+                elif args.o in ["h","x","hex"]:
                     output = (
                         hex(from_6(args.ip))
                         if not args.P
                         else hex(from_6(args.ip))[0x02:]
                     )
-                elif args.o == "b" or args.o == "bin":
+                elif args.o in ["b","bin"]:
                     output = (
                         bin(from_6(args.ip))
                         if not args.P
@@ -66,19 +66,19 @@ def main():
                         print(to_4(int(args.ip, 0o10)))
             else:
                 output = from_4(args.ip)
-                if args.o == "o" or args.o == "oct":
+                if args.o in ["o","oct"]:
                     output = (
                         oct(from_4(args.ip))
                         if not args.P
                         else oct(from_4(args.ip))[0x02:]
                     )
-                elif args.o == "h" or args.o == "x" or args.o == "hex":
+                elif args.o in ["h","x","hex"]:
                     output = (
                         hex(from_4(args.ip))
                         if not args.P
                         else hex(from_4(args.ip))[0x02:]
                     )
-                elif args.o == "b" or args.o == "bin":
+                elif args.o in ["b","bin"]:
                     output = (
                         bin(from_4(args.ip))
                         if not args.P

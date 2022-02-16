@@ -7,10 +7,22 @@ A CLI to convert IP addresses to integers and vice versa
 `pip install ip2d-py`
 ### Usage
 
-`ip2dpy ::3 --hex`
+```bash
+> ip2dpy ::3 --hex
+3
+```
 
-`ip2dpy 8.8.8.8`
+```bash
+> ip2dpy 8.8.8.8
+134744072
+```
 
-`ip2dpy -i 51092 --hex -c`
+```bash
+> ip2dpy -i 51092 --hex -c
+::c794
+```
 
-`ip2dpy ff:fe20::67 --hex -o oct`
+```bash
+> ip2dpy ff:fe20::67 --hex -o oct
+0o7777704000000000000000000000000000000147
+```
